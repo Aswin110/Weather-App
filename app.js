@@ -3,10 +3,11 @@ const button = document.getElementById('button');
 const keyValue = 'abe8bdfec8e84dfc86083021230410';
 
 const body = document.querySelector('body');
+const icon = document.getElementById('img');
 const locationData = document.querySelector('.location');
 const regionData = document.querySelector('.region');
 const countryData = document.querySelector('.country');
-const conditionData = document.querySelector('.condition');
+const conditionData = document.querySelector('.conditionDetails');
 const celsiusData = document.querySelector('.celsius');
 const fahrenheitData = document.querySelector('.fahrenheit');
 const isDayData = document.querySelector('.isDay');
@@ -27,9 +28,11 @@ button.addEventListener('click', async function(){
 		const time = weatherData.current.last_updated;
 		const isDay = weatherData.current.is_day === 1 ? 'Day':'Night';
 		const wind = weatherData.current.wind_kph;
-
+		
+		console.log(typeof(condition));
 		updateData(name, region, country, condition, celsius, fahrenheit, time, isDay, wind);
 		updateDay(isDay);
+		updateIcon(condition);
 		console.log(`Location:${name}, region:${region}, Country:${country}, celsius:${celsius}°C, fahrenheit:${fahrenheit}°F, isDay:${isDay}, wind speed:${wind}km/h, time:${time}, Condition:${condition}`);
 	}catch(e){
 		console.log(e);
@@ -58,4 +61,14 @@ const updateDay = (isDay) => {
 		body.classList.remove('day');
 		body.classList.add('night');
 	}
-}
+};
+
+const updateIcon = (condition) => {
+	if (condition === 'Partly cloudy'){
+		icon.src = '/images/clouds.png';
+	}
+	if (condition === 'Mist'){
+		icon.src = '/images/mist.png';
+	}
+	return ' ';
+};
