@@ -36,6 +36,11 @@ button.addEventListener('click', async function(){
 		console.log(`Location:${name}, region:${region}, Country:${country}, celsius:${celsius}°C, fahrenheit:${fahrenheit}°F, isDay:${isDay}, wind speed:${wind}km/h, time:${time}, Condition:${condition}`);
 	}catch(e){
 		console.log(e);
+		const error = document.createElement('div');
+		error.innerText = 'No matching location found.';
+		error.style.color = 'white';
+		error.style.textAlign = 'centre';
+		body.appendChild(error);
 	}
 }
 );
@@ -67,8 +72,17 @@ const updateIcon = (condition) => {
 	if (condition === 'Partly cloudy'){
 		icon.src = '/images/clouds.png';
 	}
-	if (condition === 'Mist'){
+	if (condition === 'Mist' || condition === 'Fog'){
 		icon.src = '/images/mist.png';
 	}
-	return ' ';
+	if (condition === 'Clear'){
+		icon.src = '/images/clear.png';
+	}
+	if (condition === 'Humidity'){
+		icon.src = '/images/humidity.png';
+	}
+	if (condition === 'Rain'){
+		icon.src = '/images/rain.png';
+	}
+	return '';
 };
