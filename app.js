@@ -69,20 +69,23 @@ const updateDay = (isDay) => {
 };
 
 const updateIcon = (condition) => {
-	if (condition === 'Partly cloudy'){
+	if (condition === 'Partly cloudy' || condition === 'Overcast'){
 		icon.src = '/images/clouds.png';
 	}
 	if (condition === 'Mist' || condition === 'Fog'){
 		icon.src = '/images/mist.png';
 	}
-	if (condition === 'Clear'){
+	if (condition === 'Clear' || condition === 'Sunny'){
 		icon.src = '/images/clear.png';
 	}
 	if (condition === 'Humidity'){
 		icon.src = '/images/humidity.png';
 	}
-	if (condition === 'Rain'){
+	if (condition === 'Rain' || condition === 'Raining'){
 		icon.src = '/images/rain.png';
+	}
+	if (condition === 'Snow' || condition === 'Snowing'){
+		icon.src = '/images/snow.png';
 	}
 	return '';
 };
