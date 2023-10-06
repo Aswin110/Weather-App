@@ -77,9 +77,6 @@ input[type=text]:focus{
     padding: 10px;
 }
 
-.time{
-}
-
 .status{
     display: flex;
     flex-direction: column;
